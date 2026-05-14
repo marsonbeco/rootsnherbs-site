@@ -11,6 +11,3 @@
 # Root canonical
 /index        /    301
 /home         /    301
-
-# 404 fallback (Cloudflare Pages uses 404.html automatically, but explicit is safer)
-/*            /404.html    404
