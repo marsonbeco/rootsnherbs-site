@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Disallow nothing — full public educational site
+
+Sitemap: https://rootsnherbs.online/sitemap.xml

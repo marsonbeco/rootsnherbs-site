@@ -1,0 +1,16 @@
+# Cloudflare Pages _redirects
+# Format: /old-path  /new-path  status-code
+
+# Trailing slash normalization
+/articles/    /articles/morning-blood-sugar.html    301
+
+# Common misspellings / old URLs
+/article/*    /articles/:splat    301
+/blog/*       /articles/:splat    301
+
+# Root canonical
+/index        /    301
+/home         /    301
+
+# 404 fallback (Cloudflare Pages uses 404.html automatically, but explicit is safer)
+/*            /404.html    404

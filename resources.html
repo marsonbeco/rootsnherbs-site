@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Resources — Glycemic Index Tables, A1C Calculator &amp; More | rootsnherbs.online</title>
+  <meta name="description" content="Free downloadable resources for diabetes management: glycemic index table, A1C reference chart, blood sugar log template, morning checklist, and a simple A1C estimator.">
+  <link rel="canonical" href="https://rootsnherbs.online/resources.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      rootsnherbs
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav" id="siteNav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/articles/morning-blood-sugar.html">Blood Sugar</a></li>
+        <li><a href="/resources.html" class="active">Resources</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding:3rem 0;">
+    <div class="container">
+      <h1>Free Resources</h1>
+      <p class="hero__subtitle">Reference tables, calculators, and checklists — free, no sign-up required.</p>
+      <span class="hero__disclaimer">⚕️ For educational use only. These tools do not replace advice from your healthcare provider.</span>
+    </div>
+  </section>
+
+  <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
+
+    <!-- ── A1C ESTIMATOR ──────────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">🧮</div>
+      <h2 class="resource-card__title">A1C ↔ Average Glucose Estimator</h2>
+      <p class="resource-card__desc">Convert between A1C percentage and estimated average glucose (eAG) using the formula validated in the ADAG study: <em>eAG (mg/dL) = 28.7 × A1C − 46.7</em></p>
+
+      <div style="background:var(--c-bg-soft);border:1px solid var(--c-border);border-radius:var(--radius-lg);padding:1.5rem;max-width:480px;">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
+          <label style="flex:1;min-width:160px;">
+            <span style="font-size:.875rem;font-weight:600;display:block;margin-bottom:.4rem;">A1C (%)</span>
+            <input id="a1cInput" type="number" min="4" max="16" step="0.1" placeholder="e.g. 7.0"
+              style="width:100%;padding:10px 12px;border:1px solid var(--c-border);border-radius:var(--radius-md);font-size:1rem;background:var(--c-bg);color:var(--c-text);">
+          </label>
+          <label style="flex:1;min-width:160px;">
+            <span style="font-size:.875rem;font-weight:600;display:block;margin-bottom:.4rem;">Avg Glucose (mg/dL)</span>
+            <input id="eagInput" type="number" min="70" max="450" step="1" placeholder="e.g. 154"
+              style="width:100%;padding:10px 12px;border:1px solid var(--c-border);border-radius:var(--radius-md);font-size:1rem;background:var(--c-bg);color:var(--c-text);">
+          </label>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <button onclick="calcFromA1C()" class="btn btn--primary" style="flex:1;">A1C → eAG</button>
+          <button onclick="calcFromEAG()" class="btn btn--outline" style="flex:1;">eAG → A1C</button>
+        </div>
+        <div id="calcResult" style="margin-top:1rem;padding:.75rem 1rem;background:var(--c-primary-light);border-radius:var(--radius-md);display:none;font-weight:600;color:var(--c-primary-dark);"></div>
+        <p style="font-size:.75rem;color:var(--c-text-xmuted);margin-top:.75rem;margin-bottom:0;">Formula: eAG (mg/dL) = 28.7 × A1C% − 46.7 · To convert to mmol/L, divide by 18.02 · ±15% individual variation applies.</p>
+      </div>
+    </div>
+
+    <!-- ── GI TABLE ────────────────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">📊</div>
+      <h2 class="resource-card__title">Glycemic Index &amp; Glycemic Load Reference Table</h2>
+      <p class="resource-card__desc">Common foods ranked by Glycemic Index (GI) and Glycemic Load (GL) per standard serving. Source: University of Sydney GI Database &amp; ADA dietary guidelines. <span class="text-muted">(GI: Low ≤55 · Medium 56–69 · High ≥70 · GL: Low ≤10 · Medium 11–19 · High ≥20)</span></p>
+
+      <div style="overflow-x:auto;">
+        <table class="gi-table">
+          <thead>
+            <tr>
+              <th>Food</th>
+              <th>Serving</th>
+              <th>GI</th>
+              <th>GL</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="5" style="font-weight:700;background:var(--c-bg-soft);color:var(--c-text-muted);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;">Grains &amp; Bread</td></tr>
+            <tr><td>White bread</td><td>1 slice (30g)</td><td>75</td><td>10</td><td><span class="gi-badge gi-badge--high">High GI</span></td></tr>
+            <tr><td>Whole grain bread</td><td>1 slice (30g)</td><td>53</td><td>7</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Sourdough (white flour)</td><td>1 slice (30g)</td><td>54</td><td>8</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Bagel (plain)</td><td>½ bagel (70g)</td><td>72</td><td>25</td><td><span class="gi-badge gi-badge--high">High GI + High GL</span></td></tr>
+            <tr><td>White rice (cooked)</td><td>½ cup (100g)</td><td>73</td><td>21</td><td><span class="gi-badge gi-badge--high">High GI</span></td></tr>
+            <tr><td>Basmati rice (cooked)</td><td>½ cup (100g)</td><td>50</td><td>14</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Brown rice (cooked)</td><td>½ cup (100g)</td><td>55</td><td>16</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Pasta (al dente)</td><td>½ cup cooked (75g)</td><td>41</td><td>13</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Rolled oats (cooked)</td><td>½ cup cooked (120g)</td><td>55</td><td>10</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Instant oatmeal</td><td>½ cup cooked (120g)</td><td>79</td><td>17</td><td><span class="gi-badge gi-badge--high">High GI</span></td></tr>
+            <tr><td>Cornflakes cereal</td><td>¾ cup (30g)</td><td>81</td><td>20</td><td><span class="gi-badge gi-badge--high">High GI + High GL</span></td></tr>
+            <tr><td colspan="5" style="font-weight:700;background:var(--c-bg-soft);color:var(--c-text-muted);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;">Vegetables &amp; Legumes</td></tr>
+            <tr><td>Broccoli</td><td>½ cup cooked (85g)</td><td>15</td><td>1</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Spinach</td><td>1 cup raw (30g)</td><td>15</td><td>&lt;1</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Carrots (raw)</td><td>½ cup (65g)</td><td>35</td><td>2</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Sweet potato (boiled)</td><td>½ cup (100g)</td><td>44</td><td>10</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>White potato (baked)</td><td>1 medium (150g)</td><td>85</td><td>26</td><td><span class="gi-badge gi-badge--high">High GI + High GL</span></td></tr>
+            <tr><td>Lentils (boiled)</td><td>½ cup (100g)</td><td>32</td><td>5</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Chickpeas (boiled)</td><td>½ cup (100g)</td><td>28</td><td>8</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Black beans (boiled)</td><td>½ cup (100g)</td><td>30</td><td>7</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td colspan="5" style="font-weight:700;background:var(--c-bg-soft);color:var(--c-text-muted);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;">Fruits</td></tr>
+            <tr><td>Apple</td><td>1 medium (150g)</td><td>36</td><td>6</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Orange</td><td>1 medium (130g)</td><td>43</td><td>5</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Strawberries</td><td>1 cup (150g)</td><td>40</td><td>3</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Banana (ripe)</td><td>1 medium (120g)</td><td>62</td><td>16</td><td><span class="gi-badge gi-badge--med">Medium GI</span></td></tr>
+            <tr><td>Watermelon</td><td>1 cup (150g)</td><td>72</td><td>4</td><td><span class="gi-badge gi-badge--high">High GI / Low GL</span></td></tr>
+            <tr><td>Orange juice</td><td>½ cup (125ml)</td><td>57</td><td>12</td><td><span class="gi-badge gi-badge--med">Medium GI</span></td></tr>
+            <tr><td colspan="5" style="font-weight:700;background:var(--c-bg-soft);color:var(--c-text-muted);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;">Dairy &amp; Protein</td></tr>
+            <tr><td>Plain Greek yogurt</td><td>¾ cup (170g)</td><td>11</td><td>2</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Whole milk</td><td>1 cup (240ml)</td><td>39</td><td>5</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Eggs</td><td>2 large</td><td>0</td><td>0</td><td><span class="gi-badge gi-badge--low">No GI impact</span></td></tr>
+            <tr><td>Chicken breast</td><td>90g</td><td>0</td><td>0</td><td><span class="gi-badge gi-badge--low">No GI impact</span></td></tr>
+            <tr><td colspan="5" style="font-weight:700;background:var(--c-bg-soft);color:var(--c-text-muted);font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;">Snacks &amp; Sweets</td></tr>
+            <tr><td>Dark chocolate (70%+)</td><td>30g</td><td>23</td><td>5</td><td><span class="gi-badge gi-badge--low">Low GI</span></td></tr>
+            <tr><td>Rice cakes (plain)</td><td>2 cakes (18g)</td><td>82</td><td>14</td><td><span class="gi-badge gi-badge--high">High GI</span></td></tr>
+            <tr><td>Almonds</td><td>30g (~23 nuts)</td><td>0</td><td>0</td><td><span class="gi-badge gi-badge--low">No GI impact</span></td></tr>
+            <tr><td>Potato chips</td><td>30g</td><td>56</td><td>12</td><td><span class="gi-badge gi-badge--med">Medium GI</span></td></tr>
+            <tr><td>Table sugar (sucrose)</td><td>1 tsp (4g)</td><td>65</td><td>3</td><td><span class="gi-badge gi-badge--med">Medium GI / Low GL</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xmuted" style="margin-top:.75rem;">Note: GI values are averages from published databases and may vary by ripeness, cooking method, and individual metabolic response. Source: Atkinson, Foster-Powell &amp; Brand-Miller (2008), <em>Diabetes Care</em>; University of Sydney GI Database.</p>
+    </div>
+
+    <!-- ── A1C REFERENCE CHART ─────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">📋</div>
+      <h2 class="resource-card__title">A1C Reference Chart</h2>
+      <p class="resource-card__desc">A1C values, estimated average glucose equivalents, and clinical categories — based on ADA Standards of Medical Care 2024.</p>
+      <div style="overflow-x:auto;">
+        <table class="gi-table">
+          <thead>
+            <tr><th>A1C (%)</th><th>eAG (mg/dL)</th><th>eAG (mmol/L)</th><th>Category</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4.0</td><td>68</td><td>3.8</td><td><span class="gi-badge gi-badge--low">Below normal range</span></td></tr>
+            <tr><td>5.0</td><td>97</td><td>5.4</td><td><span class="gi-badge gi-badge--low">Normal</span></td></tr>
+            <tr><td>5.4</td><td>108</td><td>6.0</td><td><span class="gi-badge gi-badge--low">Normal</span></td></tr>
+            <tr><td>5.7</td><td>117</td><td>6.5</td><td><span class="gi-badge gi-badge--med">Prediabetes begins</span></td></tr>
+            <tr><td>6.0</td><td>126</td><td>7.0</td><td><span class="gi-badge gi-badge--med">Prediabetes</span></td></tr>
+            <tr><td>6.4</td><td>137</td><td>7.6</td><td><span class="gi-badge gi-badge--med">Prediabetes (upper limit)</span></td></tr>
+            <tr><td>6.5</td><td>140</td><td>7.8</td><td><span class="gi-badge gi-badge--high">Diabetes threshold</span></td></tr>
+            <tr><td>7.0</td><td>154</td><td>8.6</td><td><span class="gi-badge gi-badge--high">Diabetes — ADA goal boundary</span></td></tr>
+            <tr><td>7.5</td><td>169</td><td>9.4</td><td><span class="gi-badge gi-badge--high">Diabetes — above ADA goal</span></td></tr>
+            <tr><td>8.0</td><td>183</td><td>10.2</td><td><span class="gi-badge gi-badge--high">Diabetes — above ADA goal</span></td></tr>
+            <tr><td>9.0</td><td>212</td><td>11.8</td><td><span class="gi-badge gi-badge--high">Diabetes — significantly elevated</span></td></tr>
+            <tr><td>10.0</td><td>240</td><td>13.4</td><td><span class="gi-badge gi-badge--high">Diabetes — high risk</span></td></tr>
+            <tr><td>12.0</td><td>298</td><td>16.6</td><td><span class="gi-badge gi-badge--high">Diabetes — very high risk</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xmuted" style="margin-top:.75rem;">Individual A1C targets should be set with your healthcare provider. ADA generally recommends &lt;7% for most non-pregnant adults with diabetes.</p>
+    </div>
+
+    <!-- ── BLOOD SUGAR LOG ─────────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">📝</div>
+      <h2 class="resource-card__title">Blood Sugar Log Template</h2>
+      <p class="resource-card__desc">A simple 7-day log you can print or use as a reference for tracking readings. Consistent logging over 1–2 weeks can reveal patterns that are useful to discuss with your care team.</p>
+      <div style="overflow-x:auto;">
+        <table class="gi-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Fasting (waking)</th>
+              <th>Before Lunch</th>
+              <th>2h After Lunch</th>
+              <th>Before Dinner</th>
+              <th>2h After Dinner</th>
+              <th>Bedtime</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Tuesday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Wednesday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Thursday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Friday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Saturday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+            <tr><td>Sunday</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td style="color:var(--c-text-xmuted)">___</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xmuted" style="margin-top:.75rem;">Target ranges for most adults with diabetes (ADA): Fasting 80–130 mg/dL · 2h post-meal below 180 mg/dL. Your personal targets may differ — confirm with your care team.</p>
+    </div>
+
+    <!-- ── MORNING CHECKLIST ───────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">✅</div>
+      <h2 class="resource-card__title">Morning Blood Sugar Management Checklist</h2>
+      <p class="resource-card__desc">A practical daily checklist based on evidence-informed strategies for managing morning glucose levels.</p>
+      <ul class="checklist">
+        <li><span class="checklist__check">✓</span><span><strong>Test fasting glucose</strong> before eating or drinking anything (except water)</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Log the reading</strong> along with yesterday's bedtime glucose for pattern tracking</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Note sleep quality</strong> — poor sleep directly raises morning cortisol and glucose</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Have a protein-first breakfast</strong> — eggs, Greek yogurt, or another low-GI option before any carbohydrates</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Avoid fruit juice</strong> — eat whole fruit with fiber intact if fruit is desired</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Take a 10–15 minute walk</strong> within 60–90 minutes of eating breakfast</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Take medications</strong> as prescribed and at the recommended timing relative to meals</span></li>
+        <li><span class="checklist__check">✓</span><span><strong>Hydrate</strong> — drink at least 1–2 glasses of water in the morning; dehydration can raise blood glucose</span></li>
+      </ul>
+      <p class="text-xmuted" style="margin-top:.75rem;">See our article: <a href="/articles/morning-blood-sugar.html">Morning Blood Sugar — Why It Rises &amp; What To Do</a></p>
+    </div>
+
+    <!-- ── USEFUL LINKS ────────────────────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-card__icon">🔗</div>
+      <h2 class="resource-card__title">Trusted External Resources</h2>
+      <p class="resource-card__desc">We only link to authoritative, non-commercial medical organizations.</p>
+      <div class="cards-grid" style="margin-top:1rem;">
+        <a href="https://diabetes.org" target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none;">
+          <div class="card__body">
+            <div class="card__tag">Medical Organization</div>
+            <div class="card__title">American Diabetes Association</div>
+            <p class="card__excerpt">Standards of care, patient resources, research updates, and local support programs.</p>
+            <span class="card__read-more">Visit diabetes.org →</span>
+          </div>
+        </a>
+        <a href="https://www.who.int/health-topics/diabetes" target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none;">
+          <div class="card__body">
+            <div class="card__tag">Global Health</div>
+            <div class="card__title">World Health Organization — Diabetes</div>
+            <p class="card__excerpt">Global diabetes statistics, guidelines, and public health resources.</p>
+            <span class="card__read-more">Visit who.int →</span>
+          </div>
+        </a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none;">
+          <div class="card__body">
+            <div class="card__tag">Research Database</div>
+            <div class="card__title">PubMed — National Library of Medicine</div>
+            <p class="card__excerpt">Search peer-reviewed medical research. Free access to millions of scientific abstracts.</p>
+            <span class="card__read-more">Visit pubmed.gov →</span>
+          </div>
+        </a>
+        <a href="https://www.cdc.gov/diabetes/" target="_blank" rel="noopener noreferrer" class="card" style="text-decoration:none;">
+          <div class="card__body">
+            <div class="card__tag">US Public Health</div>
+            <div class="card__title">CDC — Diabetes Resources</div>
+            <p class="card__excerpt">Prevention programs, statistics, diabetes management tips, and National Diabetes Prevention Program info.</p>
+            <span class="card__read-more">Visit cdc.gov →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="medical-disclaimer" style="margin-top:1rem;">
+      <strong>⚕️ Reminder</strong>
+      All tools and tables on this page are for general educational purposes only. Glycemic index values are averages and individual responses vary significantly. A1C estimates are based on population-derived formulas (±15% individual variation). Always consult your healthcare provider for personalized guidance.
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-brand__logo">🌿 rootsnherbs.online</a>
+      <p class="footer-brand__desc">Free educational resource on diabetes and metabolic health.</p>
+      <p class="footer-brand__disclaimer">Educational content only · Not medical advice · No products sold</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">Articles</div>
+      <ul>
+        <li><a href="/articles/morning-blood-sugar.html">Morning Blood Sugar</a></li>
+        <li><a href="/articles/foods-that-spike-glucose.html">Foods &amp; Glucose</a></li>
+        <li><a href="/articles/insulin-resistance.html">Insulin Resistance</a></li>
+        <li><a href="/articles/a1c-the-number-that-matters.html">A1C Explained</a></li>
+        <li><a href="/articles/walking-after-meals.html">Walking After Meals</a></li>
+        <li><a href="/articles/exercise-glucose-control.html">Exercise &amp; Glucose</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">Site</div>
+      <ul>
+        <li><a href="/resources.html">Resources</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 rootsnherbs.online — Educational purposes only</span>
+    <span>No medical advice · No products sold</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  function calcFromA1C() {
+    const a1c = parseFloat(document.getElementById('a1cInput').value);
+    if (isNaN(a1c) || a1c < 4 || a1c > 16) { showResult('Please enter a valid A1C between 4 and 16.', false); return; }
+    const eag = (28.7 * a1c - 46.7).toFixed(0);
+    const mmol = (eag / 18.02).toFixed(1);
+    showResult(`A1C ${a1c}% → Estimated Average Glucose: <strong>${eag} mg/dL (${mmol} mmol/L)</strong>`, true);
+  }
+  function calcFromEAG() {
+    const eag = parseFloat(document.getElementById('eagInput').value);
+    if (isNaN(eag) || eag < 70 || eag > 450) { showResult('Please enter a valid glucose between 70 and 450 mg/dL.', false); return; }
+    const a1c = ((eag + 46.7) / 28.7).toFixed(1);
+    showResult(`Average Glucose ${eag} mg/dL → Estimated A1C: <strong>${a1c}%</strong>`, true);
+  }
+  function showResult(msg, ok) {
+    const el = document.getElementById('calcResult');
+    el.innerHTML = msg;
+    el.style.display = 'block';
+    el.style.background = ok ? 'var(--c-primary-light)' : 'var(--c-alert-bg)';
+    el.style.color = ok ? 'var(--c-primary-dark)' : 'var(--c-alert-red)';
+  }
+</script>
+</body>
+</html>
