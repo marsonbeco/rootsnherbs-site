@@ -894,7 +894,78 @@ a.card:hover .card__read-more { text-decoration: underline; }
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* ── 24. Print ───────────────────────────────────────────────── */
+/* ── 24. Featured Video (Homepage) ─────────────────────────── */
+.featured-video-section {
+  background: linear-gradient(160deg, #0C1810 0%, #0A1520 100%);
+  padding: var(--space-2xl) 0;
+}
+.featured-video-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 56px;
+  align-items: center;
+}
+.featured-video-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  background: rgba(232,148,31,0.12);
+  border: 1px solid rgba(232,148,31,0.25);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.featured-video-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 0 0 18px;
+}
+.featured-video-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.featured-video-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.38);
+  flex-wrap: wrap;
+}
+.featured-video-player {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.featured-video-frame {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.featured-video-frame iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+@media (max-width: 768px) {
+  .featured-video-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ── 25. Print ───────────────────────────────────────────────── */
 @media print {
   .site-header, .site-footer, .video-embed, .article-video { display: none; }
   body { font-size: 12pt; color: #000; font-family: Georgia, serif; }
