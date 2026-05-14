@@ -42,8 +42,8 @@
   --space-2xl: 72px;
 
   /* Layout */
-  --max-w-content: 740px;
-  --max-w-wide:    1120px;
+  --max-w-content: 900px;
+  --max-w-wide:    1280px;
 
   /* Radius */
   --radius-sm:  4px;
